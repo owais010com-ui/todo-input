@@ -29,7 +29,6 @@ form {
   display: flex;
   gap: 10px;
   margin-bottom: 25px;
-
   animation: slideDown 0.5s ease;
 }
 
@@ -47,7 +46,8 @@ form {
 
 input {
   padding: 12px 14px;
-  width: 260px;
+  width: 90%;
+  max-width: 260px;
   border-radius: 12px;
   border: 1px solid #2a2a2a;
   background: #1a1a1a;
@@ -61,7 +61,6 @@ input:focus {
   box-shadow: 0 0 12px #00ffcc;
   transform: scale(1.02);
 }
-
 
 form button {
   padding: 13px 19px;
@@ -80,9 +79,10 @@ form button:hover {
 }
 
 .todo-item {
+  width: 90%;
+  max-width: 350px;
   background: #1a1a1a;
-  width: 330px;
-  padding: 5px 15px;
+  padding: 12px 15px;
   margin: 8px 0;
   border-radius: 15px;
   display: flex;
@@ -91,7 +91,6 @@ form button:hover {
   border: 1px solid #2a2a2a;
   animation: popUp 0.4s ease forwards;
 }
-
 
 @keyframes popUp {
   from {
@@ -105,23 +104,93 @@ form button:hover {
   }
 }
 
-
 .todo-item:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-3px);
   border-color: #00ffcc;
 }
+.todo-item h4 {
+  margin: 0;
+  word-break: break-word;
+}
 
+.todo-actions {
+  display: flex;
+  gap: 8px;
+}
 
-.todo-item button {
-  background: crimson;
+.edit-btn {
+  background: royalblue;
   border: none;
-  padding: 6px 10px;
+  padding: 7px 12px;
   border-radius: 8px;
   color: white;
   cursor: pointer;
   transition: 0.3s;
 }
 
-.todo-item button:hover {
-  transform: scale(1.1);
+.delete-btn {
+  background: crimson;
+  border: none;
+  padding: 7px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.edit-btn:hover,
+.delete-btn:hover {
+  transform: scale(1.05);
+}
+
+.empty {
+  color: #888;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 20px 10px;
+  }
+
+  form {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  input {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  form button {
+    width: 90%;
+    max-width: 350px;
+  }
+
+  .todo-item {
+    width: 90%;
+    max-width: 350px;
+  }
+}
+
+
+
+@media (max-width: 480px) {
+  .todo-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .todo-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
+  .todo-item h4 {
+    width: 100%;
+    word-break: break-word;
+  }
 }
